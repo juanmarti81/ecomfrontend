@@ -8,7 +8,13 @@ const ListProductsAdmin = () => {
   const navigate = useNavigate();
 
   const getProducts = async () => {
-    const res = await (await fetch(process.env.REACT_APP_BACKURL + "products/")).json();
+    const res = await (
+      await fetch(process.env.REACT_APP_BACKURL + "products/", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
     // const res = await (await fetch("http://localhost:3001/products/")).json();
 
     if (res.data) {

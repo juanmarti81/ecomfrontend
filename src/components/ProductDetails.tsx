@@ -9,7 +9,13 @@ const ProductDetails = () => {
   let {id} = useParams();
 
   const getProduct = async () => {
-    const res = await (await fetch(`${process.env.REACT_APP_BACKURL}products/${id}`)).json();
+    const res = await (
+      await fetch(`${process.env.REACT_APP_BACKURL}products/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
 
     if (res.data) {
       setProducto(res.data[0]);
