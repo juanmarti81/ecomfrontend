@@ -14,8 +14,6 @@ const ProductDetails = () => {
     if (res.data) {
       setProducto(res.data[0]);
     }
-
-    console.log(res.data[0]);
   };
 
   useEffect(() => {
